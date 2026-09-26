@@ -1,0 +1,150 @@
+:root {
+    --ink: #1f2933;
+    --muted: #66717d;
+    --surface: #ffffff;
+    --background: #eef3f7;
+    --accent: #1f6f8b;
+    --accent-dark: #155269;
+    --border: #d5dee5;
+    --danger: #a33a3a;
+    --success: #246b45;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background: var(--background);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+}
+
+main {
+    width: min(92%, 1000px);
+    margin: 0 auto;
+    padding: 48px 0;
+}
+
+.card {
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(31, 41, 51, 0.08);
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-size: 2rem;
+}
+
+.subtitle {
+    margin: 0 0 28px;
+    color: var(--muted);
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--ink);
+    background: #fbfcfd;
+    font: inherit;
+}
+
+input:focus {
+    outline: 2px solid rgba(31, 111, 139, 0.25);
+    border-color: var(--accent);
+}
+
+button,
+.button {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 4px;
+    color: #ffffff;
+    background: var(--accent);
+    font: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover,
+.button:hover {
+    background: var(--accent-dark);
+}
+
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+.alert {
+    margin: 0 0 18px;
+    padding: 10px 12px;
+    border-left: 4px solid var(--danger);
+    color: var(--danger);
+    background: #fff3f3;
+}
+
+.success {
+    margin: 18px 0;
+    padding: 12px;
+    border-left: 4px solid var(--success);
+    color: var(--success);
+    background: #f1faf4;
+}
+
+.profile-list {
+    margin: 24px 0;
+}
+
+.profile-list p {
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-list strong {
+    display: inline-block;
+    width: 110px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 24px 0;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+}

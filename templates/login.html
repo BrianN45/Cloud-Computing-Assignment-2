@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <section class="card">
+            <h1>Welcome back</h1>
+            <p class="subtitle">Sign in to view your profile.</p>
+
+            {% if error %}
+                <p class="alert" role="alert">{{ error }}</p>
+            {% endif %}
+
+            <form method="POST" action="{{ url_for('login_post') }}">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Log in</button>
+            </form>
+
+            <hr>
+
+            <h2>Text file tools</h2>
+            <p class="subtitle">Upload a .txt file to count its words.</p>
+            <form method="POST" action="{{ url_for('upload_text') }}" enctype="multipart/form-data">
+                <label for="text_file">Choose a text file</label>
+                <input type="file" id="text_file" name="text_file" accept=".txt,text/plain" required>
+                <button type="submit">Upload file</button>
+            </form>
+
+            {% if upload_error %}
+                <p class="alert" role="alert">{{ upload_error }}</p>
+            {% endif %}
+
+            {% if word_count is defined %}
+                <p class="success">Word count: <strong>{{ word_count }}</strong></p>
+                <a class="button" href="{{ download_url }}">Download file</a>
+            {% endif %}
+
+            <div class="actions">
+                <a class="button" href="{{ url_for('index') }}">Create an account</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if user %}{{ user[3] }}'s profile{% else %}Profile not found{% endif %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <section class="card">
+      {% if user %}
+        <h1>User profile</h1>
+        <p class="subtitle">Account information</p>
+        <div class="profile-list">
+          <p><strong>User ID</strong> {{ user[0] }}</p>
+          <p><strong>Username</strong> {{ user[3] }}</p>
+          <p><strong>First name</strong> {{ user[1] }}</p>
+          <p><strong>Last name</strong> {{ user[2] }}</p>
+          <p><strong>Address</strong> {{ user[5] }}</p>
+          <p><strong>Email</strong> {{ user[6] }}</p>
+        </div>
+      {% else %}
+        <h1>User not found</h1>
+        <p class="subtitle">The requested profile does not exist.</p>
+      {% endif %}
+      <div class="actions">
+        <a class="button" href="{{ url_for('login_get') }}">Back to login</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
